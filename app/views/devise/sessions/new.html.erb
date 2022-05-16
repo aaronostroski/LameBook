@@ -1,26 +1,48 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="relative left-5 top-5 flex">  
+  <svg class="w-6 h-6 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+  <%= link_to "Back to home", timeline_path, class: "inline ml-3" %>
+</div>
+
+<div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8">
+  <div>
+      <h2 class="text-center text-3xl font-extrabold text-gray-900">Sign in to <span class="text-indigo-700">LameBook</span></h2>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
+    <% if flash[:alert] %>
+    <div id="alert-2" class="relative flex p-4 mb-4 bg-red-100 rounded-lg dark:bg-red-200" role="alert">
+      <svg class="flex-shrink-0 w-5 h-5 text-red-700 dark:text-red-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+      <div class="ml-3 text-sm font-medium text-red-700 dark:text-red-800">
+        <p><%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %></p>
+      </div>
+      <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-red-100 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex h-8 w-8 dark:bg-red-200 dark:text-red-600 dark:hover:bg-red-300" data-dismiss-target="#alert-2" aria-label="Close">
+        <span class="sr-only">Close</span>
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+      </button>
+    </div>
+    <% end %>
+    <div class="rounded-md shadow-sm -space-y-px">
+      <div>
+        <%= f.label :email, class: "sr-only" %>
+        <%= f.email_field :email, autofocus: true, placeholder: "Email", autocomplete: "email", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+      </div>
+      <div>
+        <%= f.label :password, class: "sr-only" %>
+        <%= f.password_field :password, placeholder: "Password", autocomplete: "current-password", required: true, class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"  %>
+      </div>
+    </div>
+    <% if devise_mapping.rememberable? %>
+    <div class="flex items-center justify-between my-2">
+      <div class="flex items-center">
+        <%= f.check_box :remember_me, class: "h-4  w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"  %>
+        <%= f.label :remember_me, class: "ml-2 block text-sm text-gray-900" %>
+      </div>
+      <%= link_to "Create Account", new_user_registration_path, class: "text-sm text-gray-900" %>
+    </div>
+    <% end %>
+    <div>
+      <%= f.submit "Sign in", class: "group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
