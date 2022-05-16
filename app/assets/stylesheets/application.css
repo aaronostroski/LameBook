@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+:root {
+    --main-color: #E4E6EB;
+    --secondy-color: #fff;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    background-color: var(--main-color);
+}
+nav {
+    height: 60px;
+}
+
+section {
+    max-width: 680px;
+    margin: 10px auto;
+}
+
+.fade {
+    animation: fade 0.2s ease-in;
+}
+
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
