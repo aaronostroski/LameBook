@@ -9,9 +9,14 @@ class PostsLikesController < ApplicationController
         if @postsLikes.save
             @posts = Post.find(params[:post_id])
             @posts.likes = @posts.likes + 1;
-            @posts.save
 
-            render json: { response: @posts.likes }, status: 200
+            if @posts.save
+                render json: { response: @posts.likes }, status: 200
+            else
+                render json: { response: "Failed to like the post" }, status: 400
+            end
+        else
+            render json: { response: "Failed to process the request" }, status: 400
         end
     end
 
