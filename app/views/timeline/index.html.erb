@@ -44,7 +44,7 @@
                 <img class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500 mr-5" src="https://www.w3schools.com/howto/img_avatar.png" alt="<%= post.user.firstName %> <%= post.user.lastName %>">
                 <% end %>                
                 <div class="flex flex-col">
-                <p class="text-sm font-medium text-gray-700"> <%= post.user.firstName %> <%= post.user.lastName %> <%= post.id %></p>
+                <p class="text-sm font-medium text-gray-700"> <%= post.user.firstName %> <%= post.user.lastName %></p>
                 <span class="text-sm font-medium text-gray-700"> <%= post.created_at.strftime("Posted on %m/%d/%Y at %T") %></span>
             </div>
             </div>
