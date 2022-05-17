@@ -1,5 +1,4 @@
 # LameBook
-Website: https://lamebook.herokuapp.com/
 Lamebook is simple Web App make with Ruby on Rails. The system has the basic features of a social media like:
 
 * Sign in
