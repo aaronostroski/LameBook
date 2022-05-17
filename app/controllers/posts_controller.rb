@@ -7,9 +7,9 @@ class PostsController < ApplicationController
         @posts.image.attach(params[:image])
         
         if @posts.save
-            redirect_to root_path, notice: "Post created successfully"
+            redirect_to timeline_path, status: 302, notice: "Post created successfully"
         else
-            redirect_to root_path, notice: "A error happens when you try to created the post, try again later!"      
-        end 
+            redirect_to timeline_path, status: 400, notice: "You need write a text to publish a post!"      
+        end
     end
 end
