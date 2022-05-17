@@ -1,24 +1,17 @@
 # README
+Website: https://lamebook.herokuapp.com/
+Lamebook is simple Web App make with Ruby on Rails. The system has the basic features of a social media like:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Sign in
+* Sign up
+* Logout
+* Create a post
+* Like a post
 
-Things you may want to cover:
+The tecnologies behind this application are:
 
-* Ruby version
+* Ruby: 3.0.4
+* Rails: 7.0.3
+* Tailwindcss:  2.0
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Any others, you can see on Gemfile.
